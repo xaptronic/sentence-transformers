@@ -193,8 +193,7 @@ class SentenceTransformer(nn.Sequential):
 
                 all_embeddings.extend(embeddings)
 
-            items_processed = min(batch_size, len(sentences) - start_index)
-            progress_bar.update(items_processed)
+            progress_bar.update(len(sentences_batch))
 
         all_embeddings = [all_embeddings[idx] for idx in np.argsort(length_sorted_idx)]
 
